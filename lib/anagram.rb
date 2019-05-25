@@ -15,11 +15,7 @@ class Anagram
    def match(array)
     split_word = @word.split("").sort
     split_array = array.collect {|e| e.split("").sort}.select {|w| w == split_word}.flatten
-    array.map.with_index do |el, ind|
-      if el.split("").sort == split_array
-        return el
-      end 
-    end 
+    array.select {|el| el.split("").sort == split_array}
   end 
   
 end 
